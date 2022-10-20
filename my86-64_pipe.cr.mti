@@ -1,1 +1,22 @@
+C:/Users/xiadong/Desktop/my86_pipe/fetch.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module fetch
 
+Top level modules:
+	fetch
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module fetch_reg
+
+Top level modules:
+	fetch_reg
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module fetch_tb
+
+Top level modules:
+	fetch_tb
+
+} {} {}}

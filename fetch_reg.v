@@ -9,7 +9,7 @@ module fetch_reg(
 
     reg [`D_WORD] pred_pc_reg;
 
-    assign f_pred_pc_o = pred_pc_reg;
+    assign F_pred_pc_o = pred_pc_reg;
 
     always@(posedge clk_i) begin
         if(~rstn_i)

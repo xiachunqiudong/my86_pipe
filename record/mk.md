@@ -9,9 +9,7 @@
 
 ![image-20221019223715303](C:\Users\xiadong\Desktop\my86_pipe\record\mk.assets\image-20221019223715303.png)
 
-
-
-
+- 取指阶段需要选择当前需要的pc值，并预测下一阶段的pc值。
 
 ## decode
 

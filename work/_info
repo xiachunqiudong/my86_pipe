@@ -8,14 +8,22 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/xiadong/Desktop/my86_pipe
+T_opt
+!s110 1666237902
+VR6YHA>ZMniii]Zgl_]5J_1
+04 8 4 work fetch_tb fast 0
+=5-84a9386dca6d-6350c5ce-1ce-894
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.4;61
 vfetch
-Z1 !s110 1666232329
+Z1 !s110 1666237890
 !i10b 1
-!s100 mz^_8ji^j=7_X_X1S^aaj0
-I=?7DI26T^SF2=8SL_SRAJ0
+!s100 E]_FaSQ:Ah5h9Gd;dZWC03
+IF7A_5GOJ13YeDek=g=4B20
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1666232136
+w1666236344
 8C:/Users/xiadong/Desktop/my86_pipe/fetch.v
 FC:/Users/xiadong/Desktop/my86_pipe/fetch.v
 L0 3
@@ -23,7 +31,7 @@ Z3 OL;L;10.4;61
 r1
 !s85 0
 31
-!s108 1666232329.807000
+!s108 1666237890.853000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/fetch.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/fetch.v|
 !i113 0
@@ -31,11 +39,11 @@ Z4 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vfetch_reg
 R1
 !i10b 1
-!s100 d<zf<`hQ8ZjUfWd=_CoPi1
-I]Q2mjeGznoleoZDBPig;h0
+!s100 ]U`[7kHI_K4`HPzR105E`0
+INo3EL<`Ri[0KJRC2ZdjZz1
 R2
 R0
-w1666232327
+w1666237145
 8C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
 L0 3
@@ -43,8 +51,28 @@ R3
 r1
 !s85 0
 31
-!s108 1666232329.869000
+!s108 1666237890.931000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v|
+!i113 0
+R4
+vfetch_tb
+!s110 1666237891
+!i10b 1
+!s100 _Ul0<Wbk_knD77@`M2Y2=0
+IH<_6U][ANCB3Vz6^Ln;oV0
+R2
+R0
+w1666237762
+8C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v
+FC:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1666237890.993000
+!s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v|
 !i113 0
 R4

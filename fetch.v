@@ -42,7 +42,12 @@ module fetch(
             f_stat_o = `SAOK;         
     end
 
-    // f_pc
+    /*
+        pc选择器从三个pc值中选择
+        当jxx指令进入访存阶段并且预测错误时，从流水线寄存器M(M_valA)读取valP的值
+        当ret指令进入写回阶段是，从流水线寄存器W中读取W_valM的值
+        其他情况使用流水线寄存器F中预测的pc值
+    */
     always@(*) begin
         if(M_icode_i == `IJXX && M_Cnd_i == 0) // 分支预测错误 并没有跳转
             f_pc = M_valA_i;
@@ -102,4 +107,7 @@ module fetch(
             f_pred_pc_o = f_valP_o;
     end
     
+    initial begin
+        $readmemh("C:/Users/xiadong/Desktop/my86_pipe/mycode.txt", instr_mem);
+    end
 endmodule
