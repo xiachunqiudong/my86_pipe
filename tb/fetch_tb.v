@@ -1,21 +1,28 @@
 `include "define.v"
 
 module fetch_tb;
-    
-    wire [`D_WORD] F_pred_pc;
-    wire [`D_WORD] f_pred_pc;
-
-    //input
-    reg [`NIBBLE] M_icode;
-    reg [`NIBBLE] M_Cnd;
-    reg [`D_WORD] M_valA;
-    reg [`NIBBLE] W_icode;
-    reg [`NIBBLE] W_valM;
 
     reg clk;
     reg rstn;
 
-    // output
+    wire [`D_WORD] F_pred_pc;
+    wire [`D_WORD] f_pred_pc;
+
+    fetch_reg f_r(
+        .clk_i(clk),
+        .rstn_i(rstn),
+        .f_pred_pc_i(f_pred_pc),
+        .F_pred_pc_o(F_pred_pc)
+    );
+
+    //input
+    reg [`NIBBLE] M_icode;
+    reg           M_Cnd;
+    reg [`D_WORD] M_valA;
+    reg [`NIBBLE] W_icode;
+    reg [`NIBBLE] W_valM;
+
+        // output
     wire [`NIBBLE] icode, ifun;
     wire [`NIBBLE] rA, rB;
     wire [`D_WORD] valC;
@@ -39,12 +46,7 @@ module fetch_tb;
         .f_stat_o(stat)
     );
 
-    fetch_reg f_r(
-        .clk_i(clk),
-        .rstn_i(rstn),
-        .f_pred_pc_i(f_pred_pc),
-        .F_pred_pc_o(F_pred_pc)
-    );
+
 
     initial begin
         rstn = 0;

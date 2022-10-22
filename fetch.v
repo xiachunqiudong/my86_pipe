@@ -5,8 +5,8 @@ module fetch(
     input wire [`D_WORD] F_pred_pc_i,
     // 访存阶段 分支预测错误
     input wire [`NIBBLE] M_icode_i,
-    input wire [`D_WORD] M_valA_i,
     input wire           M_Cnd_i,
+    input wire [`D_WORD] M_valA_i,
     // 写回阶段 得到ret返回地址
     input wire [`NIBBLE] W_icode_i,
     input wire [`D_WORD] W_valM_i,

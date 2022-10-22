@@ -18,8 +18,8 @@ module decode_wb(
     input wire  [`D_WORD] M_valE_i,
     // 写回阶段
     input wire  [`NIBBLE] W_dstE_i,
-    input wire  [`NIBBLE] W_dstM_i,
     input wire  [`D_WORD] W_valE_i,
+    input wire  [`NIBBLE] W_dstM_i,
     input wire  [`D_WORD] W_valM_i,
     // output
     output reg [`NIBBLE] d_dstE_o,
