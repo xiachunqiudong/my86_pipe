@@ -34,19 +34,21 @@ module decode_wb(
     reg [`D_WORD] d_rvalA, d_rvalB;
 
     // 真正输出的valA and valB
+    // 转发优先级十分重要
+    // 转发距离自己最近的指令的值 也就是在同一时钟中期步骤越靠前的指令
     always @(*) begin
         if(D_icode_i == `ICALL || D_icode_i == `IJXX) // call 以及 jxx 指令后续不需要valA的值 所以用valA取传递valP的值
             d_valA_o = D_valP_i;
         else if(E_dstE_i == d_srcA_o)
             d_valA_o = e_valE_i;
-        else if(M_dstE_i == d_srcA_o)
-            d_valA_o = M_valE_i;
         else if(M_dstM_i == d_srcA_o)
             d_valA_o = m_valM_i;
-        else if(W_dstE_i == d_srcA_o)
-            d_valA_o = W_valE_i;
+        else if(M_dstE_i == d_srcA_o)
+            d_valA_o = M_valE_i;
         else if(W_dstM_i == d_srcA_o)
             d_valA_o = W_valM_i;
+        else if(W_dstE_i == d_srcA_o)
+            d_valA_o = W_valE_i;
         else
             d_valA_o = d_rvalA;
     end
@@ -54,14 +56,14 @@ module decode_wb(
     always @(*) begin
         if(E_dstE_i == d_srcB_o)
             d_valB_o = e_valE_i;
-        else if(M_dstE_i == d_srcB_o)
-            d_valB_o = M_valE_i;
         else if(M_dstM_i == d_srcB_o)
             d_valB_o = m_valM_i;
-        else if(W_dstE_i == d_srcB_o)
-            d_valB_o = W_valE_i;
+        else if(M_dstE_i == d_srcB_o)
+            d_valB_o = M_valE_i;
         else if(W_dstM_i == d_srcB_o)
             d_valB_o = W_dstM_i;
+        else if(W_dstE_i == d_srcB_o)
+            d_valB_o = W_valE_i;
         else
             d_valB_o = d_rvalB;
     end
@@ -87,7 +89,7 @@ module decode_wb(
                 d_dstE_o = `RNONE;
                 d_dstM_o = D_rA_i;
             end
-            `IMRMOVQ: begin
+            `IRMMOVQ: begin
                 d_srcA_o = D_rA_i;
                 d_srcB_o = D_rB_i;
                 d_dstE_o = `RNONE;
