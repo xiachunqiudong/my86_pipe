@@ -9,7 +9,7 @@ module decode_wb(
     input wire  [`NIBBLE] D_rB_i,
     input wire  [`D_WORD] D_valP_i,
     // 执行阶段
-    input wire  [`NIBBLE] E_dstE_i,
+    input wire  [`NIBBLE] e_dstE_i,
     input wire  [`D_WORD] e_valE_i,
     // 访存阶段
     input wire  [`NIBBLE] M_dstM_i,
@@ -39,7 +39,7 @@ module decode_wb(
     always @(*) begin
         if(D_icode_i == `ICALL || D_icode_i == `IJXX) // call 以及 jxx 指令后续不需要valA的值 所以用valA取传递valP的值
             d_valA_o = D_valP_i;
-        else if(E_dstE_i == d_srcA_o)
+        else if(e_dstE_i == d_srcA_o)
             d_valA_o = e_valE_i;
         else if(M_dstM_i == d_srcA_o)
             d_valA_o = m_valM_i;
@@ -54,7 +54,7 @@ module decode_wb(
     end
 
     always @(*) begin
-        if(E_dstE_i == d_srcB_o)
+        if(e_dstE_i == d_srcB_o)
             d_valB_o = e_valE_i;
         else if(M_dstM_i == d_srcB_o)
             d_valB_o = m_valM_i;
@@ -168,6 +168,6 @@ module decode_wb(
             if(W_dstM_i != `RNONE)
                 regs[W_dstM_i] <= W_valM_i;
         end
-    end 
+    end
 
 endmodule

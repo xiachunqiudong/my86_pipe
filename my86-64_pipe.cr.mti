@@ -5,13 +5,6 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	decode_reg
 
-} {} {}} C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v
-Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
--- Compiling module cpu_top
-
-Top level modules:
-	cpu_top
-
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module fetch
@@ -19,12 +12,34 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	fetch
 
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/execute.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/execute.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module execute
+
+Top level modules:
+	execute
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module fsm
+-- Compiling module fsm_tb
+
+Top level modules:
+	fsm_tb
+
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module fetch_reg
 
 Top level modules:
 	fetch_reg
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/mem_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/mem_reg.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module mem_reg
+
+Top level modules:
+	mem_reg
 
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/execute_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/execute_reg.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014

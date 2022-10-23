@@ -9,9 +9,9 @@ module execute(
     input wire signed [`D_WORD] E_valA_i,
     input wire signed [`D_WORD] E_valB_i,
     input wire        [`NIBBLE] E_dstE_i,
-    input wire        [`NIBBLE] m_stat,
-    input wire        [`NIBBLE] W_stat,
-    output reg                  e_Cnd_o;
+    input wire        [`NIBBLE] m_stat_i,
+    input wire        [`NIBBLE] W_stat_i,
+    output reg                  e_Cnd_o,
     output reg        [`NIBBLE] e_dstE_o,
     output reg signed [`D_WORD] e_valE_o
 );
@@ -83,17 +83,21 @@ module execute(
             alu_fun = `ALUADD;
     end
 
-    assign set_cc = (E_icode_i == `IOPQ) & (m_stat == `SAOK) & (W_stat == `SAOK);
+    // 只有当指令为运算指令 并且状态都正常的时候 才更新条件吗寄存器
+    assign set_cc = (E_icode_i == `IOPQ) & (m_stat_i == `SAOK) & (W_stat_i == `SAOK);
 
+    // 计算 e_valE_o
     always @(*) begin
-        case(alu_fun) begin
+        case(alu_fun)
             `ALUADD: e_valE_o = aluB + aluA;
             `ALUSUB: e_valE_o = aluB - aluA;
             `ALUAND: e_valE_o = aluB & aluA;
             `ALUXOR: e_valE_o = aluB ^ aluA;
-        end
+            default: e_valE_o = aluB + aluA;
+        endcase
     end
 
+    // 根据计算结果设置条件码寄存器
     // cc[2] zf cc[1] sf cc[0] of
     always@(posedge clk_i) begin
         if(~rstn_i)
@@ -112,5 +116,17 @@ module execute(
             cc <= cc;
     end
 
+    // 计算Cnd
+    always @(*) begin
+        case(E_ifun_i)
+            `C_YES: e_Cnd_o = 1;
+            `C_L:   e_Cnd_o = (sf ^ of);
+            `C_LE:  e_Cnd_o = (sf ^ of) | zf;
+            `C_E:   e_Cnd_o = zf;
+            `C_NE:  e_Cnd_o = ~zf;
+            `C_G:   e_Cnd_o = ~(sf ^ of) & ~zf;
+            `C_GE:  e_Cnd_o = ~(sf ^ of);
+        endcase
+    end
     
 endmodule

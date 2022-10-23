@@ -11,9 +11,6 @@ module cpu_top;
 
     // 取指阶段
     // input
-    reg [`NIBBLE] M_icode;
-    reg           M_Cnd;
-    reg [`D_WORD] M_valA;
     reg [`NIBBLE] W_icode;
     reg [`D_WORD] W_valM;
     // output
@@ -39,10 +36,6 @@ module cpu_top;
 
     // 译码阶段
     // input
-    reg [`D_WORD] e_valE;
-    reg [`NIBBLE] M_dstE;
-    reg [`D_WORD] M_valE;
-    reg [`NIBBLE] M_dstM;
     reg [`D_WORD] m_valM;
     reg [`NIBBLE] W_dstE;
     reg [`D_WORD] W_valE;
@@ -57,16 +50,34 @@ module cpu_top;
 
     // 执行时钟寄存器
     // output 
-    reg [`NIBBLE] E_stat;
-    reg [`NIBBLE] E_icode;
-    reg [`NIBBLE] E_ifun;
-    reg [`D_WORD] E_valC;
-    reg [`D_WORD] E_valA;
-    reg [`D_WORD] E_valB;
-    reg [`NIBBLE] E_srcA;
-    reg [`NIBBLE] E_srcB;
-    reg [`NIBBLE] E_dstE;
-    reg [`NIBBLE] E_dstM;
+    wire [`NIBBLE] E_stat;
+    wire [`NIBBLE] E_icode;
+    wire [`NIBBLE] E_ifun;
+    wire [`D_WORD] E_valC;
+    wire [`D_WORD] E_valA;
+    wire [`D_WORD] E_valB;
+    wire [`NIBBLE] E_srcA;
+    wire [`NIBBLE] E_srcB;
+    wire [`NIBBLE] E_dstE;
+    wire [`NIBBLE] E_dstM;
+
+    // 执行阶段
+    // input
+    reg [`NIBBLE] m_stat;
+    reg [`NIBBLE] W_stat;
+    // output 
+    wire           e_Cnd;
+    wire [`NIBBLE] e_dstE;
+    wire [`D_WORD] e_valE;
+
+    // 访存时钟寄存器 
+    wire [`NIBBLE] M_stat;
+    wire [`NIBBLE] M_icode;
+    wire [`NIBBLE] M_Cnd;
+    wire [`D_WORD] M_valE;
+    wire [`D_WORD] M_valA;
+    wire [`D_WORD] M_dstE;
+    wire [`D_WORD] M_dstM;
     
     // 取指令时钟寄存器
     fetch_reg f_r(
@@ -122,7 +133,7 @@ module cpu_top;
         .D_rA_i(D_rA),
         .D_rB_i(D_rB),
         .D_valP_i(D_valP),
-        .E_dstE_i(E_dstE),
+        .e_dstE_i(e_dstE),
         .e_valE_i(e_valE),
         .M_dstE_i(M_dstE),
         .M_valE_i(M_valE),
@@ -166,12 +177,44 @@ module cpu_top;
         .E_dstM_o(E_dstM)
     );
 
+    execute e(
+        .clk_i(clk),
+        .rstn_i(rstn),
+        .E_icode_i(E_icode),
+        .E_ifun_i(E_ifun),
+        .E_valC_i(E_valC),
+        .E_valA_i(E_valA),
+        .E_valB_i(E_valB),
+        .E_dstE_i(E_dstE),
+        .m_stat_i(m_stat),
+        .W_stat_i(W_stat),
+        .e_Cnd_o(e_Cnd),
+        .e_dstE_o(e_dstE),
+        .e_valE_o(e_valE)
+    );
+
+    mem_reg m_r(
+        .clk_i(clk),
+        .rst_n_i(rstn),
+        .E_stat_i(E_stat),
+        .E_icode_i(E_icode),
+        .e_Cnd_i(e_Cnd),
+        .e_valE_i(e_valE),
+        .E_valA_i(E_valA),
+        .e_dstE_i(e_dstE),
+        .E_dstM_i(E_dstM),
+        .M_stat_o(M_stat),
+        .M_icode_o(M_icode),
+        .M_Cnd_o(M_Cnd),
+        .M_valE_o(M_valE),
+        .M_valA_o(M_valA),
+        .M_dstE_o(M_dstE),
+        .M_dstM_o(M_dstM)
+    );
+
     initial begin
         rstn = 0;
         clk  = 1;
-        M_icode = `IOPQ;
-        M_Cnd = 0;
-        M_valA = 0;
         W_icode = `IOPQ;
         W_valM = 0;
         #10
