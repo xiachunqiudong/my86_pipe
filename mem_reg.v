@@ -13,15 +13,15 @@ module mem_reg(
     // output
     output reg [`NIBBLE] M_stat_o,
     output reg [`NIBBLE] M_icode_o,
-    output reg [`NIBBLE] M_Cnd_o,
+    output reg           M_Cnd_o,
     output reg [`D_WORD] M_valE_o,
     output reg [`D_WORD] M_valA_o,
-    output reg [`D_WORD] M_dstE_o,
-    output reg [`D_WORD] M_dstM_o
+    output reg [`NIBBLE] M_dstE_o,
+    output reg [`NIBBLE] M_dstM_o
 );
 
     always @(posedge clk_i) begin
-        if(rst_n_i) begin
+        if(~rst_n_i) begin
             M_stat_o  <= 0;
             M_icode_o <= 0;
             M_Cnd_o   <= 0;

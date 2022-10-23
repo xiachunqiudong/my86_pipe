@@ -18,3 +18,19 @@
 ## memory
 
 ## write back
+
+
+
+
+
+# 测试
+
+```markdown
+irmovq r10 4
+30 fa 00 00 00 00 00 00 00 00 04
+irmovq r11 6
+30 fb 00 00 00 00 00 00 00 00 06
+icmovq r10 r11
+60 ab
+```
+

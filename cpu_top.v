@@ -1,18 +1,18 @@
 `include "define.v"
 
-module cpu_top;
+module cpu_top(
+    input wire clk,
+    input wire rstn
+);
     
-    reg clk;
-    reg rstn;
-
     // 取值时钟寄存器
     // output
     wire [`D_WORD] F_pred_pc;
 
     // 取指阶段
     // input
-    reg [`NIBBLE] W_icode;
-    reg [`D_WORD] W_valM;
+    reg [`NIBBLE] W_icode = `IOPQ;
+    reg [`D_WORD] W_valM = 0;
     // output
     wire [`D_WORD] f_pred_pc;
     wire [`NIBBLE] f_icode;
@@ -27,12 +27,12 @@ module cpu_top;
     // 译码时钟寄存器
     // output
     wire [`NIBBLE] D_icode;
-    wire [`NIBBLE] D_if;
+    wire [`NIBBLE] D_ifun;
     wire [`NIBBLE] D_rA;
     wire [`NIBBLE] D_rB;
     wire [`D_WORD] D_valC;
     wire [`D_WORD] D_valP;
-    wire [`D_WORD] D_stat;
+    wire [`NIBBLE] D_stat;
 
     // 译码阶段
     // input
@@ -73,11 +73,11 @@ module cpu_top;
     // 访存时钟寄存器 
     wire [`NIBBLE] M_stat;
     wire [`NIBBLE] M_icode;
-    wire [`NIBBLE] M_Cnd;
+    wire           M_Cnd;
     wire [`D_WORD] M_valE;
     wire [`D_WORD] M_valA;
-    wire [`D_WORD] M_dstE;
-    wire [`D_WORD] M_dstM;
+    wire [`NIBBLE] M_dstE;
+    wire [`NIBBLE] M_dstM;
     
     // 取指令时钟寄存器
     fetch_reg f_r(
@@ -211,20 +211,5 @@ module cpu_top;
         .M_dstE_o(M_dstE),
         .M_dstM_o(M_dstM)
     );
-
-    initial begin
-        rstn = 0;
-        clk  = 1;
-        W_icode = `IOPQ;
-        W_valM = 0;
-        #10
-        clk = 0;
-        #10
-        rstn = 1;
-        clk = 1;
-        #10
-        clk = 0;
-        $stop;
-    end
 
 endmodule

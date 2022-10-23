@@ -81,7 +81,7 @@ module decode_wb(
                 d_srcA_o = `RNONE;
                 d_srcB_o = `RNONE;
                 d_dstE_o = D_rB_i;
-                d_dstE_o = `RNONE;
+                d_dstM_o = `RNONE;
             end
             `IMRMOVQ: begin
                 d_srcA_o = `RNONE;
@@ -140,7 +140,7 @@ module decode_wb(
         endcase
     end
 
-    reg [`BYTE] regs [0:14];
+    reg [`D_WORD] regs [0:14];
 
     // 译码阶段 读寄存器
     always @(*) begin
