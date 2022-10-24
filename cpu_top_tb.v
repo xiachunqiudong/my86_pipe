@@ -17,7 +17,7 @@ module cpu_top_tb;
         clk  = 1;
         #10
         rstn = 1;
-        #40
+        #100
         $stop;
     end
 

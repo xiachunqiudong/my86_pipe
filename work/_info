@@ -20,298 +20,297 @@ R0
 T_opt1
 !s110 1666529142
 VdUVf:8UdPbSh<;>n5PZ_12
-04 10 4 work cpu_top_tb fast 0
+Z3 04 10 4 work cpu_top_tb fast 0
 =2-84a9386dca6d-63553776-231-6c64
 R1
 n@_opt1
 R2
 R0
 T_opt2
-!s110 1666522635
-VIj@azV5V;]=3=3cfaG:1m1
-04 7 4 work cpu_top fast 0
-=1-84a9386dca6d-63551e0b-16c-1114
+!s110 1666604134
+VjE3GQO7UY?;:2SN2=T@Ec1
+R3
+=4-84a9386dca6d-63565c66-3b-1118
 R1
 n@_opt2
 R2
-R0
 vcpu_top
-Z3 !s110 1666580839
+Z4 !s110 1666604126
 !i10b 1
 !s100 cLa<YE;gEhXN3II>n3ml@2
 I;6aHo21WXX<]jcX9MH:i<3
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 VDg1SIo80bB@j0V0VzS_@n1
 R0
 w1666580829
 8C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v
 FC:/Users/xiadong/Desktop/my86_pipe/cpu_top.v
 L0 3
-Z5 OL;L;10.4;61
+Z6 OL;L;10.4;61
 r1
 !s85 0
 31
-!s108 1666580839.528000
+!s108 1666604126.784000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v|
 !i113 0
-Z6 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vcpu_top_tb
-R3
+Z8 !s110 1666604127
 !i10b 1
-!s100 IeEi5OfmWiz8SY8ofT62F3
-IK2k9IY2@ZOdlP15=]>dbn2
-R4
+!s100 7L60d7:ZJfM<Y7O82B31^1
+IKQ>_3`H^BLYhLWg4;lNf91
+R5
 R0
-w1666527169
+w1666604122
 8C:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v
 FC:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.950000
+!s108 1666604127.191000
 !s107 C:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v|
 !i113 0
-R6
+R7
 vdecode_reg
-R3
+R4
 !i10b 1
 !s100 SJ44JUXPUoicWkSdm2hDZ2
 IhYLJk8kNIn^HCa]HYP`m73
-R4
+R5
 R0
 w1666521544
 8C:/Users/xiadong/Desktop/my86_pipe/decode_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/decode_reg.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.388000
+!s108 1666604126.659000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/decode_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/decode_reg.v|
 !i113 0
-R6
+R7
 vdecode_wb
-R3
+R4
 !i10b 1
 !s100 cda:`dzA0;o]9I@BKA[BI3
 Ih;2lniaC9a`=2MIfe1RWB1
-R4
+R5
 R0
 w1666536161
 8C:/Users/xiadong/Desktop/my86_pipe/decode_wb.v
 FC:/Users/xiadong/Desktop/my86_pipe/decode_wb.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.466000
+!s108 1666604126.722000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/decode_wb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/decode_wb.v|
 !i113 0
-R6
+R7
 vexecute
-R3
+R8
 !i10b 1
 !s100 7=Vc6Qb249Q7PCoAFC80U0
 IFUjWg=KNUlkOF:YLQfIhW2
-R4
+R5
 R0
 w1666500407
 8C:/Users/xiadong/Desktop/my86_pipe/execute.v
 FC:/Users/xiadong/Desktop/my86_pipe/execute.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.810000
+!s108 1666604127.066000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/execute.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/execute.v|
 !i113 0
-R6
+R7
 vexecute_reg
-R3
+R4
 !i10b 1
 !s100 Ne0Mz0I6JW::2<Za99b7M3
 IQ:hFR^fZAo;fT6GSEI>@J1
-R4
+R5
 R0
 w1666499622
 8C:/Users/xiadong/Desktop/my86_pipe/execute_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/execute_reg.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.669000
+!s108 1666604126.925000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/execute_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/execute_reg.v|
 !i113 0
-R6
+R7
 vfetch
-R3
+R4
 !i10b 1
 !s100 l2RCSSFd;>VGRn49e;;8i2
 IF[W`XzYBWR8i35=R6BKPF0
-R4
+R5
 R0
 w1666531820
 8C:/Users/xiadong/Desktop/my86_pipe/fetch.v
 FC:/Users/xiadong/Desktop/my86_pipe/fetch.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.247000
+!s108 1666604126.519000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/fetch.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/fetch.v|
 !i113 0
-R6
+R7
 vfetch_reg
-R3
+R4
 !i10b 1
 !s100 ]U`[7kHI_K4`HPzR105E`0
 INo3EL<`Ri[0KJRC2ZdjZz1
-R4
+R5
 R0
 w1666526458
 8C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.325000
+!s108 1666604126.581000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/fetch_reg.v|
 !i113 0
-R6
+R7
 vfetch_tb
-R3
+R4
 !i10b 1
 !s100 m1Y8m;PfiOAiDSkl_VXPi0
 Id^SQJ=T8dE2[SG^=`k5aE1
-R4
+R5
 R0
 w1666410153
 8C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v
 FC:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.591000
+!s108 1666604126.863000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/tb/fetch_tb.v|
 !i113 0
-R6
+R7
 vfsm
-R3
+R8
 !i10b 1
 !s100 7NBIOVcWbcNTjg8]1_6]Z1
 Id4o1Nf<2LE^Il3FclIaZC2
-R4
-R0
-Z7 w1666497289
-Z8 8C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v
-Z9 FC:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v
-L0 1
 R5
+R0
+Z9 w1666497289
+Z10 8C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v
+Z11 FC:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v
+L0 1
+R6
 r1
 !s85 0
 31
-Z10 !s108 1666580839.732000
-Z11 !s107 C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v|
-Z12 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v|
+Z12 !s108 1666604126.988000
+Z13 !s107 C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v|
+Z14 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/tb/fsm.v|
 !i113 0
-R6
+R7
 vfsm_tb
-R3
+R8
 !i10b 1
 !s100 eOL:n2Oc]MM17?ZPSGgC:2
 IZE@c8hj^@j`b7:91oFB9;1
-R4
-R0
-R7
-R8
-R9
-L0 20
 R5
+R0
+R9
+R10
+R11
+L0 20
+R6
 r1
 !s85 0
 31
-R10
-R11
 R12
+R13
+R14
 !i113 0
-R6
+R7
 vmem
-Z13 !s110 1666580840
+R8
 !i10b 1
 !s100 7zeD;L:<03<aH=OR^EPC31
 Ig6_z>PFm]ih6_QMFMcjDL2
-R4
+R5
 R0
-w1666535417
+w1666603879
 8C:/Users/xiadong/Desktop/my86_pipe/mem.v
 FC:/Users/xiadong/Desktop/my86_pipe/mem.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580840.013000
+!s108 1666604127.254000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/mem.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/mem.v|
 !i113 0
-R6
+R7
 vmem_reg
-R3
+R8
 !i10b 1
 !s100 _1H^>[zKX?CDQZc>C>_Bf2
 IZMIbL2`ZR9jXDBjOXH;E]2
-R4
+R5
 R0
 w1666580129
 8C:/Users/xiadong/Desktop/my86_pipe/mem_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/mem_reg.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580839.872000
+!s108 1666604127.129000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/mem_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/mem_reg.v|
 !i113 0
-R6
+R7
 vwb_reg
-R13
+R8
 !i10b 1
-!s100 ODBHi]H5@E2Cbk^FOe7<l2
-INOR`h<_ffL>omoEjcoP^A3
-R4
+!s100 V:fYN6fX^T>>o`mnH0SgJ1
+IzeieLJU859o1E2zXT:d^L2
+R5
 R0
-w1666536157
+w1666603901
 8C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v
 FC:/Users/xiadong/Desktop/my86_pipe/wb_reg.v
 L0 3
-R5
+R6
 r1
 !s85 0
 31
-!s108 1666580840.075000
+!s108 1666604127.317000
 !s107 define.v|C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v|
 !i113 0
-R6
+R7

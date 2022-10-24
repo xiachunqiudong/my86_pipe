@@ -17,7 +17,7 @@ module wb_reg(
     output reg [`NIBBLE] W_dstM_o
 );
     always @(posedge clk_i) begin
-        if(rstn_i) begin
+        if(~rstn_i) begin
             W_stat_o  <= 1;
             W_icode_o <= 0;
             W_valE_o  <= 0;
