@@ -27,6 +27,13 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	fetch_tb
 
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module wb_reg
+
+Top level modules:
+	wb_reg
+
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/mem.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/mem.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module mem
@@ -55,13 +62,6 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	execute_reg
 
-} {} {}} C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v
-Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
--- Compiling module cpu_top
-
-Top level modules:
-	cpu_top
-
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module fetch
@@ -75,5 +75,12 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 
 Top level modules:
 	execute
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/decode_wb.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/decode_wb.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module decode_wb
+
+Top level modules:
+	decode_wb
 
 } {} {}}

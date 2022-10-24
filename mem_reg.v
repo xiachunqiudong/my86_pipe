@@ -2,7 +2,7 @@
 
 module mem_reg(
     input wire           clk_i,
-    input wire           rst_n_i,
+    input wire           rstn_i,
     input wire [`NIBBLE] E_stat_i,
     input wire [`NIBBLE] E_icode_i,
     input wire           e_Cnd_i,
@@ -21,7 +21,7 @@ module mem_reg(
 );
 
     always @(posedge clk_i) begin
-        if(~rst_n_i) begin
+        if(~rstn_i) begin
             M_stat_o  <= 0;
             M_icode_o <= 0;
             M_Cnd_o   <= 0;

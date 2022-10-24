@@ -10,9 +10,6 @@ module cpu_top(
     wire [`D_WORD] F_pred_pc;
 
     // 取指阶段
-    // input
-    reg [`NIBBLE] W_icode = `IOPQ;
-    reg [`D_WORD] W_valM = 0;
     // output
     wire [`D_WORD] f_pred_pc;
     wire [`NIBBLE] f_icode;
@@ -35,11 +32,6 @@ module cpu_top(
     wire [`NIBBLE] D_stat;
 
     // 译码阶段
-    // input
-    reg [`D_WORD] m_valM;
-    reg [`NIBBLE] W_dstE;
-    reg [`D_WORD] W_valE;
-    reg [`NIBBLE] W_dstM;
     // output
     wire [`NIBBLE] d_srcA;
     wire [`NIBBLE] d_srcB;
@@ -62,15 +54,13 @@ module cpu_top(
     wire [`NIBBLE] E_dstM;
 
     // 执行阶段
-    // input
-    reg [`NIBBLE] m_stat;
-    reg [`NIBBLE] W_stat;
     // output 
     wire           e_Cnd;
     wire [`NIBBLE] e_dstE;
     wire [`D_WORD] e_valE;
 
     // 访存时钟寄存器 
+    // output
     wire [`NIBBLE] M_stat;
     wire [`NIBBLE] M_icode;
     wire           M_Cnd;
@@ -78,6 +68,20 @@ module cpu_top(
     wire [`D_WORD] M_valA;
     wire [`NIBBLE] M_dstE;
     wire [`NIBBLE] M_dstM;
+
+    // 访存
+    // output
+    wire [`D_WORD] m_valM;
+    wire [`NIBBLE] m_stat;
+
+    // 写回时钟寄存器
+    // output
+    wire [`NIBBLE] W_stat;
+    wire [`NIBBLE] W_icode;
+    wire [`D_WORD] W_valE;
+    wire [`D_WORD] W_valM;
+    wire [`NIBBLE] W_dstE;
+    wire [`NIBBLE] W_dstM;
     
     // 取指令时钟寄存器
     fetch_reg f_r(
@@ -177,6 +181,7 @@ module cpu_top(
         .E_dstM_o(E_dstM)
     );
 
+    // 执行
     execute e(
         .clk_i(clk),
         .rstn_i(rstn),
@@ -193,9 +198,10 @@ module cpu_top(
         .e_valE_o(e_valE)
     );
 
+    // 访存寄存器
     mem_reg m_r(
         .clk_i(clk),
-        .rst_n_i(rstn),
+        .rstn_i(rstn),
         .E_stat_i(E_stat),
         .E_icode_i(E_icode),
         .e_Cnd_i(e_Cnd),
@@ -210,6 +216,36 @@ module cpu_top(
         .M_valA_o(M_valA),
         .M_dstE_o(M_dstE),
         .M_dstM_o(M_dstM)
+    );
+
+    // 访存
+    mem m(
+        .clk_i(clk),
+        .rstn_i(rstn),
+        .M_stat_i(M_stat),
+        .M_icode_i(M_icode),
+        .M_valE_i(M_valE),
+        .M_valA_i(M_valA),
+        .m_stat_o(m_stat),
+        .m_valM_o(m_valM)
+    );
+
+    // 写回时钟寄存器
+    wb_reg w_r(
+        .clk_i(clk),
+        .rstn_i(rstn),
+        .m_stat_i(m_stat),
+        .M_icode_i(M_icode),
+        .M_valE_i(M_valE),
+        .m_valM_i(m_valM),
+        .M_dstE_i(M_dstE),
+        .M_dstM_i(M_dstM),
+        .W_stat_o(W_stat),
+        .W_icode_o(W_icode),
+        .W_valE_o(W_valE),
+        .W_valM_o(W_valM),
+        .W_dstE_o(W_dstE),
+        .W_dstM_o(W_dstM)
     );
 
 endmodule
