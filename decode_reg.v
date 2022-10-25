@@ -4,6 +4,8 @@ module decode_reg(
     // 输入
     input wire           clk_i,
     input wire           rstn_i,
+    input wire           D_stall_i,
+    input wire           D_bubble_i,
     input wire [`NIBBLE] f_icode_i,
     input wire [`NIBBLE] f_ifun_i,
     input wire [`NIBBLE] f_rA_i,
@@ -47,7 +49,25 @@ module decode_reg(
             valP_reg  <= 0;
             stat_reg  <= 0;
         end
-        else begin
+        else if(D_stall_i) begin
+            icode_reg <= icode_reg;
+            ifun_reg  <= ifun_reg;
+            rA_reg    <= rA_reg;
+            rB_reg    <= rB_reg ;
+            valC_reg  <= valC_reg;
+            valP_reg  <= valP_reg;
+            stat_reg  <= stat_reg;
+        end
+        else if(D_bubble_i) begin
+            icode_reg <= `IHALT;
+            ifun_reg  <= 0;
+            rA_reg    <= `RNONE;
+            rB_reg    <= `RNONE;
+            valC_reg  <= 0;
+            valP_reg  <= 0;
+            stat_reg  <= 0;
+        end
+        else if(D_stall_i) begin
             icode_reg <= f_icode_i;
             ifun_reg  <= f_ifun_i;
             rA_reg    <= f_rA_i;

@@ -3,6 +3,7 @@
 module mem_reg(
     input wire           clk_i,
     input wire           rstn_i,
+    input wire           M_bubble_i,
     input wire [`NIBBLE] E_stat_i,
     input wire [`NIBBLE] E_icode_i,
     input wire           e_Cnd_i,
@@ -29,6 +30,15 @@ module mem_reg(
             M_valA_o  <= 0;
             M_dstE_o  <= 0;
             M_dstM_o  <= 0;
+        end
+        else if(M_bubble_i) begin
+            M_stat_o  <= `SAOK;
+            M_icode_o <= `IHALT;
+            M_Cnd_o   <= 0;
+            M_valE_o  <= 0;
+            M_valA_o  <= 0;
+            M_dstE_o  <= `RNONE;
+            M_dstM_o  <= `RNONE;
         end
         else begin
             M_stat_o  <= E_stat_i;

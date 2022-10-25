@@ -3,6 +3,7 @@
 module wb_reg(
     input wire           clk_i,
     input wire           rstn_i,
+    input wire           W_stall_i,
     input wire [`NIBBLE] m_stat_i,
     input wire [`NIBBLE] M_icode_i,
     input wire [`D_WORD] M_valE_i,
@@ -24,6 +25,14 @@ module wb_reg(
             W_valM_o  <= 0;
             W_dstE_o  <= 0;
             W_dstM_o  <= 0;
+        end
+        else if(W_stall_i)begin
+            W_stat_o  <= W_stat_o;
+            W_icode_o <= W_icode_o;
+            W_valE_o  <= W_valE_o;
+            W_valM_o  <= W_valM_o;
+            W_dstE_o  <= W_dstE_o;
+            W_dstM_o  <= W_dstM_o;         
         end
         else begin
             W_stat_o  <= m_stat_i;

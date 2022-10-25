@@ -5,6 +5,14 @@ module cpu_top(
     input wire rstn
 );
     
+    // 流水线控制逻辑
+    wire F_stall;
+    wire D_stall;
+    wire D_bubble;
+    wire E_bubble;
+    wire M_bubble;
+    wire W_stall;
+
     // 取值时钟寄存器
     // output
     wire [`D_WORD] F_pred_pc;
@@ -82,11 +90,30 @@ module cpu_top(
     wire [`D_WORD] W_valM;
     wire [`NIBBLE] W_dstE;
     wire [`NIBBLE] W_dstM;
+
+    pipe_controller p_c(
+        .D_icode_i(D_icode),
+        .d_srcA_i(d_srcA),
+        .d_srcB_i(d_srcB),
+        .E_icode_i(E_icode),
+        .E_dstM_i(E_dstM),
+        .e_Cnd_i(e_Cnd),
+        .M_icode_i(M_icode),
+        .m_stat_i(m_stat),
+        .W_stat_i(W_stat),
+        .F_stall_o(F_stall),
+        .D_stall_o(D_stall),
+        .D_bubble_o(D_bubble),
+        .E_bubble_o(E_bubble),
+        .M_bubble_o(M_bubble),
+        .W_stall_o(W_stall)
+    );
     
     // 取指令时钟寄存器
     fetch_reg f_r(
         .clk_i(clk),
         .rstn_i(rstn),
+        .F_stall_i(F_stall),
         .f_pred_pc_i(f_pred_pc),
         .F_pred_pc_o(F_pred_pc)
     );
@@ -113,6 +140,8 @@ module cpu_top(
     decode_reg d_r(
         .clk_i(clk),
         .rstn_i(rstn),
+        .D_stall_i(D_stall),
+        .D_bubble_i(D_bubble),
         .f_icode_i(f_icode),
         .f_ifun_i(f_ifun),
         .f_rA_i(f_rA),
@@ -159,6 +188,7 @@ module cpu_top(
     execute_reg e_r(
         .clk_i(clk),
         .rstn_i(rstn),
+        .E_bubble_i(E_bubble),
         .D_stat_i(D_stat),
         .D_icode_i(D_icode),
         .D_ifun_i(D_ifun),
@@ -202,6 +232,7 @@ module cpu_top(
     mem_reg m_r(
         .clk_i(clk),
         .rstn_i(rstn),
+        .M_bubble_i(M_bubble),
         .E_stat_i(E_stat),
         .E_icode_i(E_icode),
         .e_Cnd_i(e_Cnd),
@@ -234,6 +265,7 @@ module cpu_top(
     wb_reg w_r(
         .clk_i(clk),
         .rstn_i(rstn),
+        .W_stall_i(W_stall),
         .m_stat_i(m_stat),
         .M_icode_i(M_icode),
         .M_valE_i(M_valE),
