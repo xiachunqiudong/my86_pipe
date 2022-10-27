@@ -95,7 +95,7 @@ module mem(
     always @(*) begin
         if(mem_read) begin
             for(k = 0; k < 8; k = k + 1)
-                m_valM_o[8*(k+1)-1 -: 8] <= mem_data[mem_addr + k];
+                m_valM_o[8*(k+1)-1 -: 8] <= data[mem_addr + k];
         end
         else
             m_valM_o = 0;

@@ -14,7 +14,7 @@ module execute_reg(
     input wire [`NIBBLE] d_srcB_i,
     input wire [`NIBBLE] d_dstE_i,
     input wire [`NIBBLE] d_dstM_i,
-    // output 
+    // output
     output reg [`NIBBLE] E_stat_o,
     output reg [`NIBBLE] E_icode_o,
     output reg [`NIBBLE] E_ifun_o,
@@ -29,7 +29,7 @@ module execute_reg(
 
     always @(posedge clk_i) begin
         if(~rstn_i) begin
-            E_stat_o  <= 0;
+            E_stat_o  <= `SAOK;
             E_icode_o <= 0;
             E_ifun_o  <= 0;
             E_valC_o  <= 0;

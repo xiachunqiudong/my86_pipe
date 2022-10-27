@@ -47,13 +47,13 @@ module decode_reg(
             rB_reg    <= 0;
             valC_reg  <= 0;
             valP_reg  <= 0;
-            stat_reg  <= 0;
+            stat_reg  <= `SAOK;
         end
         else if(D_stall_i) begin
             icode_reg <= icode_reg;
             ifun_reg  <= ifun_reg;
             rA_reg    <= rA_reg;
-            rB_reg    <= rB_reg ;
+            rB_reg    <= rB_reg;
             valC_reg  <= valC_reg;
             valP_reg  <= valP_reg;
             stat_reg  <= stat_reg;
@@ -67,7 +67,7 @@ module decode_reg(
             valP_reg  <= 0;
             stat_reg  <= 0;
         end
-        else if(D_stall_i) begin
+        else begin
             icode_reg <= f_icode_i;
             ifun_reg  <= f_ifun_i;
             rA_reg    <= f_rA_i;

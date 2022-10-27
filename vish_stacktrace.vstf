@@ -294,3 +294,31 @@ Exception c0000005 has occurred at address 10087cf6. Traceback:
 StackWalk failed 0
 # End of Stack Trace
 
+# Current time Wed Oct 26 10:08:31 2022
+# ModelSim Stack Trace
+# Program = vish
+# Id = "10.4"
+# Version = "2014.12"
+# Date = "Dec  3 2014"
+# Platform = win64
+
+Exception c0000005 has occurred at address 10087cf6. Traceback:
+# 0    0x10087cf6: 'TclListObjSetElement + 0x3f6'
+# 1    0x10086dec: 'Tcl_ListObjLength + 0x4c'
+# 2    0x4009064d: '<unknown (@0x4009064d)>'
+# 3    0x400941d6: '<unknown (@0x400941d6)>'
+# 4    0x4009427c: '<unknown (@0x4009427c)>'
+# 5    0x4009450b: '<unknown (@0x4009450b)>'
+# 6    0x40094888: '<unknown (@0x40094888)>'
+# 7    0x100b9a1c: 'TclServiceIdle + 0x6c'
+# 8    0x100954c1: 'Tcl_DoOneEvent + 0x181'
+# 9    0x102e21a5: 'Tk_MainLoop + 0x25'
+# 10   0x102ae12b: 'Tk_MainEx + 0x91b'
+# 11   0x400e051b: 'Mtirpc_Init + 0x22aeb'
+# 12   0x400e2292: 'Mtirpc_Init + 0x24862'
+# 13   0x405a75f2: 'Sqlite_Unload + 0xb3492'
+# 14   0xd5e854e0: 'BaseThreadInitThunk + 0x10'
+# 15   0xd78a485b: 'RtlUserThreadStart + 0x2b'
+StackWalk failed 0
+# End of Stack Trace
+

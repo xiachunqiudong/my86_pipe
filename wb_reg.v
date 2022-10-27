@@ -19,14 +19,14 @@ module wb_reg(
 );
     always @(posedge clk_i) begin
         if(~rstn_i) begin
-            W_stat_o  <= 1;
+            W_stat_o  <= `SAOK;
             W_icode_o <= 0;
             W_valE_o  <= 0;
             W_valM_o  <= 0;
             W_dstE_o  <= 0;
             W_dstM_o  <= 0;
         end
-        else if(W_stall_i)begin
+        else if(W_stall_i) begin
             W_stat_o  <= W_stat_o;
             W_icode_o <= W_icode_o;
             W_valE_o  <= W_valE_o;

@@ -23,7 +23,7 @@ module mem_reg(
 
     always @(posedge clk_i) begin
         if(~rstn_i) begin
-            M_stat_o  <= 0;
+            M_stat_o  <= `SAOK;
             M_icode_o <= 0;
             M_Cnd_o   <= 0;
             M_valE_o  <= 0;
