@@ -65,7 +65,7 @@ module decode_reg(
             rB_reg    <= `RNONE;
             valC_reg  <= 0;
             valP_reg  <= 0;
-            stat_reg  <= 0;
+            stat_reg  <= `SAOK;
         end
         else begin
             icode_reg <= f_icode_i;

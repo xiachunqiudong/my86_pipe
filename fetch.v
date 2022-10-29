@@ -83,11 +83,15 @@ module fetch(
             f_rA_o   = instr[71:68];
             f_rB_o   = instr[67:64];
             f_valC_o = instr[63:0];
+            f_valC_o = {f_valC_o[7:0],   f_valC_o[15:8],  f_valC_o[23:16], f_valC_o[31:24], 
+                        f_valC_o[39:32], f_valC_o[47:40], f_valC_o[55:48], f_valC_o[63:56]};
         end
         else begin
             f_rA_o   = `RNONE;
             f_rB_o   = `RNONE;
             f_valC_o = instr[71:8];
+            f_valC_o = {f_valC_o[7:0],   f_valC_o[15:8],  f_valC_o[23:16], f_valC_o[31:24], 
+                        f_valC_o[39:32], f_valC_o[47:40], f_valC_o[55:48], f_valC_o[63:56]};
         end
     end
 
@@ -107,7 +111,10 @@ module fetch(
             f_pred_pc_o = f_valP_o;
     end
     
+    integer j;
     initial begin
-        $readmemh("C:/Users/xiadong/Desktop/my86_pipe/mycode.txt", instr_mem);
+        for(j = 0; j < 1023; j = j + 1)
+            instr_mem[j] = 0;
+        $readmemh("C:/Users/xiadong/Desktop/my86_pipe/cp.txt", instr_mem);
     end
 endmodule

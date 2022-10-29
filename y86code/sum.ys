@@ -1,0 +1,37 @@
+.pos 0x0
+    irmovq stack, %rsp
+    call main
+    halt
+
+.align 8
+ele1:
+    .quad 0x00a
+    .quad ele2
+ele2:
+    .quad 0x0b0
+    .quad ele3
+ele3:
+    .quad 0xc00
+    .quad 0
+
+main:
+    irmovq ele1, %rdi
+    call sum
+    ret
+
+# long sum(long *start)
+sum:
+    xorq %rax, %rax         # rax = 0
+    jmp test 
+loop:
+    mrmovq (%rid),%r10      # r10 = M[rid]
+    addq   %r10,%rax        # rax = rax + r10
+    mrmovq 8(%rid),%rdi     # rdi = M[rdi + 8]
+test:
+    andq %rdi, %rdi         # rdi == 0 ? 
+    jne loop                # if(zf != 0) {goto loop} else {ret}       
+    ret 
+
+
+.pos 0x400
+    stack:

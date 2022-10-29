@@ -62,6 +62,3 @@
 `define     SHLT            4'H2
 `define     SADR            4'H3
 `define     SINS            4'H4
-
-`define ENABLE  1
-`define DISABLE 0

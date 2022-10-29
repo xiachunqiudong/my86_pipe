@@ -16,7 +16,14 @@ module pipe_controller(
     output wire          E_bubble_o, 
     output wire          M_bubble_o, 
     output wire          W_stall_o 
-);
+);  
+
+    /*
+     *                                  组合情况
+     *        |        load-use             |          mis-predict  |       ret
+     *  icode |  E_icode = mrmovq | pop     |        E_icode = jxx  |   D_icode = ret     |                                             
+     *
+    */
 
     /*
      *  执行阶段为 MRMOVQ或者POP 译码阶段使用E_dstM作为源寄存器

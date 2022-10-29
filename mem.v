@@ -66,10 +66,11 @@ module mem(
                 mem_read  = ENABLE;
                 mem_write = DISABLE;
                 mem_addr  = M_valA_i;
+                mem_data  = 0;
             end
             default: begin
                 mem_read  = DISABLE;
-                mem_write = ENABLE;
+                mem_write = DISABLE;
                 mem_addr  = 0;
                 mem_data  = 0;
             end
@@ -81,12 +82,8 @@ module mem(
     // write
     integer i, j, k;
     always @(posedge clk_i) begin
-        if(~rstn_i) begin
-            for(i = 0; i < 1024; i = i + 1)
-                data[i] <= 0;
-        end
-        else if(mem_write) begin
-            for(j = 0; j < 8; j = i + 1)
+        if(mem_write) begin
+            for(j = 0; j < 8; j = j + 1)
                 data[mem_addr + j] <= mem_data[8*(j+1)-1 -: 8];
         end
     end
@@ -99,6 +96,13 @@ module mem(
         end
         else
             m_valM_o = 0;
+    end
+
+    integer x;
+    initial begin
+        for(x = 0; x < 1024; x = x + 1)
+            data[x] = 0;
+        $readmemh("C:/Users/xiadong/Desktop/my86_pipe/cp.txt", data);
     end
 
 endmodule

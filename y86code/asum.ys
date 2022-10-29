@@ -1,0 +1,35 @@
+# 从地址0处开始执行
+    .pos 0
+    irmovq stack,%rsp # 设置栈指针
+    call main
+    halt
+
+# 四个元素的数组
+    .align 8
+array:  .quad 0x000d000d000d
+	.quad 0x00c000c000c0
+	.quad 0x0b000b000b00
+	.quad 0xa000a000a000
+
+
+main:   irmovq array,%rdi
+    irmovq $4,%rsi
+    call sum # sum(array, 4)
+
+# long sum(long *start, long count)
+# start in %rdi, count in %rsi
+sum:    irmovq $8,%r8    # 将指针+8
+    irmovq $1, %r9       # 将count - 1
+    xorq %rax,%rax       # rax = 0
+    andq %rsi,%rsi       # set cc
+    jmp test             # goto test
+loop: mrmovq (%rdi),%r10 # r10 = M[rdi]
+    addq %r10,%rax       # rax = rax + r10
+    addq %r8,%rdi        # rdi = rdi + 8
+    subq %r9,%rsi        # rsi = rsi - 1
+test: jne loop           # stop when rsi = 0 
+    ret                  # return
+
+# 栈指针 向低地址增长
+    .pos 0x200
+stack:

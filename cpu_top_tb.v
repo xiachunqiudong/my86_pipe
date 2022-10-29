@@ -17,8 +17,13 @@ module cpu_top_tb;
         clk  = 1;
         #10
         rstn = 1;
-        #100
+        #500
         $stop;
+    end
+
+    initial begin
+        $monitor($time, ": r[rdi] = %h\t    r[rsp] = %h\t    r[10] = %h\t      r[rax] = %h\t    mem[2c] = %h\t    mem[34] = %h\t    mem[3c] = %h\t", 
+                           cpu.d_w.regs[7], cpu.d_w.regs[4], cpu.d_w.regs[10], cpu.d_w.regs[0], cpu.m.data[44], cpu.m.data[52], cpu.m.data[60]);
     end
 
 endmodule
