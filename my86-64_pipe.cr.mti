@@ -34,12 +34,27 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	fetch_tb
 
+} {} {}} C:/Users/xiadong/Desktop/riscx/rtl/sel.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/riscx/rtl/sel.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sel
+-- Compiling module top
+
+Top level modules:
+	top
+
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/wb_reg.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module wb_reg
 
 Top level modules:
 	wb_reg
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/cpu_top_tb.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module cpu_top_tb
+
+Top level modules:
+	cpu_top_tb
 
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/mem.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/mem.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
@@ -69,19 +84,19 @@ Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 Top level modules:
 	read
 
-} {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch.v
-Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
--- Compiling module fetch
-
-Top level modules:
-	fetch
-
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/cpu_top.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
 -- Compiling module cpu_top
 
 Top level modules:
 	cpu_top
+
+} {} {}} C:/Users/xiadong/Desktop/my86_pipe/fetch.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/fetch.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module fetch
+
+Top level modules:
+	fetch
 
 } {} {}} C:/Users/xiadong/Desktop/my86_pipe/execute.v {1 {vlog -work work -vopt -stats=none C:/Users/xiadong/Desktop/my86_pipe/execute.v
 Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
